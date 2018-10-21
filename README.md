@@ -1,4 +1,5 @@
-<h1>prova_sicredi</h1>
+<h1>Prova Sicredi - Testes automatizados</h1>
+<h3>by Matheus Barbachan</h3>
 
 <h2>Estrutura:</h2>
 <ul>
