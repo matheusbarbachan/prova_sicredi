@@ -1,24 +1,16 @@
 package tasks;
 
 import appobjects.AddCustomerAppObject;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.FluentWait;
-import setup.ChromeBrowser;
-
-import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
-
-import static java.lang.Thread.sleep;
 
 public class AddCustomerTask {
 
     private AddCustomerAppObject addCustomer;
 
-    public AddCustomerTask(){
+    public AddCustomerTask() {
         this.addCustomer = new AddCustomerAppObject();
     }
 
-    public void AddCustomer (
+    public void AddCustomer(
             String name,
             String lastName,
             String contactFirstName,
@@ -29,9 +21,10 @@ public class AddCustomerTask {
             String state,
             String postalCode,
             String country,
-            String fromEmployeer,
+            String employeer,
             String creditLimit
-            ){
+    ) {
+
         addCustomer.getNameTextField().sendKeys(name);
         addCustomer.getLastNameTextField().sendKeys(lastName);
         addCustomer.getContactFirstNameTextField().sendKeys(contactFirstName);
@@ -43,7 +36,7 @@ public class AddCustomerTask {
         addCustomer.getPostalCodeTextField().sendKeys(postalCode);
         addCustomer.getCountryTextField().sendKeys(country);
         addCustomer.employeeSelectionDropdownButton().click();
-        addCustomer.getFromEmployeerSelect().selectByVisibleText(fromEmployeer);
+        addCustomer.getFromEmployeerSelect().selectByVisibleText(employeer);
         addCustomer.getCreditLimitTextField().sendKeys(creditLimit);
         addCustomer.getSaveButton().click();
     }

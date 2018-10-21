@@ -7,13 +7,13 @@ public class ChromeBrowser {
 
     public static ChromeDriver driver;
     public static final ChromeBrowser browser = new ChromeBrowser();
-    public ChromeBrowser(){
+
+    public ChromeBrowser() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized")
-        .addArguments("--incognito")
-        .addArguments("--no-sandbox");
+                .addArguments("--incognito");
         System.setProperty("webdriver.chrome.driver", "src/main/java/resources/chromedriver.exe");
-        driver = new  ChromeDriver(options);
+        driver = new ChromeDriver(options);
     }
 
     public static ChromeDriver getDriver() {

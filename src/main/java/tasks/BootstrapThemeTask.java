@@ -9,7 +9,7 @@ public class BootstrapThemeTask {
 
     private BootstrapThemeAppObject bootstrapThemeAppObject;
 
-    public BootstrapThemeTask(){
+    public BootstrapThemeTask() {
         this.bootstrapThemeAppObject = new BootstrapThemeAppObject();
     }
 
@@ -30,19 +30,19 @@ public class BootstrapThemeTask {
 
     public void selectAllFromSearchResult() {
         try {
-            sleep(10000);
+            sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         bootstrapThemeAppObject.getSelectAllCheckBox().click();
     }
 
-    public void deleteSelectedItem(){
+    public void deleteSelectedItem() {
         bootstrapThemeAppObject.getDeleteButton().click();
     }
 
     public boolean assertAlertDeletion() {
-        return bootstrapThemeAppObject.getAlertDeletionLabel().getText().contains("Are you sure that you want to delete this 1 item?");
+        return bootstrapThemeAppObject.getAlertDeletionLabel().getText().contains("Are you sure that you want to delete");
     }
 
     public void confirmDeletion() {

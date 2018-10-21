@@ -87,7 +87,6 @@ public class CSVReader {
     }
 
     public String valueOfCell(String headerValue) {
-        System.out.println("lendo o header de " + headerValue);
         String cellValue = "";
         try {
             setRowIndex(positionOfHeaderValue(headerValue));
@@ -128,7 +127,6 @@ public class CSVReader {
     }
 
     private String readFromCell(int line, int row){
-        System.out.println("Lendo celula linha: " + line + ", coluna: " + row);
         return cells.get(line).get(row);
     }
 }

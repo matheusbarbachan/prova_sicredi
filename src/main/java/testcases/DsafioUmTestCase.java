@@ -7,37 +7,38 @@ import tasks.AddCustomerTask;
 import tasks.BootstrapThemeTask;
 import utils.CSVReader;
 
-import static java.lang.Thread.sleep;
-
 public class DsafioUmTestCase extends Base {
 
     private BootstrapThemeTask bootstrap = new BootstrapThemeTask();
     private AddCustomerTask addCustomer = new AddCustomerTask();
-    private CSVReader datapool = new CSVReader("src/main/java/datapool/Desafio1datapool.csv");
+    private CSVReader datapool = new CSVReader("src/main/java/datapool/DesafioDatapool.csv");
 
     @Test
-    public void realizaDesafioUm(){
-        goToUrl("https://www.grocerycrud.com/demo/bootstrap_theme");
+    public void realizaDesafioUm() {
+        while (datapool.hasNext()) {
+            goToUrl("https://www.grocerycrud.com/demo/bootstrap_theme");
 
-        bootstrap.selectVersion(datapool.valueOfCell("Version"));
+            bootstrap.selectVersion(datapool.valueOfCell("Version"));
 
-        bootstrap.goToAddCustomerForm();
+            bootstrap.goToAddCustomerForm();
 
-        addCustomer.AddCustomer(
-                datapool.valueOfCell("Name"),
-                datapool.valueOfCell("LastName"),
-                datapool.valueOfCell("ContactFirstName"),
-                datapool.valueOfCell("Phone"),
-                datapool.valueOfCell("AddressLine1"),
-                datapool.valueOfCell("AddressLine2"),
-                datapool.valueOfCell("City"),
-                datapool.valueOfCell("State"),
-                datapool.valueOfCell("PostalCode"),
-                datapool.valueOfCell("Country"),
-                datapool.valueOfCell("Employeer"),
-                datapool.valueOfCell("CreditLimit")
-        );
+            addCustomer.AddCustomer(
+                    datapool.valueOfCell("Name"),
+                    datapool.valueOfCell("LastName"),
+                    datapool.valueOfCell("ContactFirstName"),
+                    datapool.valueOfCell("Phone"),
+                    datapool.valueOfCell("AddressLine1"),
+                    datapool.valueOfCell("AddressLine2"),
+                    datapool.valueOfCell("City"),
+                    datapool.valueOfCell("State"),
+                    datapool.valueOfCell("PostalCode"),
+                    datapool.valueOfCell("Country"),
+                    datapool.valueOfCell("Employeer"),
+                    datapool.valueOfCell("CreditLimit")
+            );
 
-        Assert.assertTrue(addCustomer.messageDisplayed());
+            Assert.assertTrue(addCustomer.messageDisplayed());
+            datapool.nextLine();
+        }
     }
 }

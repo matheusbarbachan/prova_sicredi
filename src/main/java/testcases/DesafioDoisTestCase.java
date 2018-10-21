@@ -8,13 +8,14 @@ import tasks.BootstrapThemeTask;
 import utils.CSVReader;
 
 public class DesafioDoisTestCase extends Base {
+
     private BootstrapThemeTask bootstrap = new BootstrapThemeTask();
     private AddCustomerTask addCustomer = new AddCustomerTask();
-    private CSVReader datapool = new CSVReader("src/main/java/datapool/Desafio1datapool.csv");
+    private CSVReader datapool = new CSVReader("src/main/java/datapool/DesafioDatapool.csv");
 
     @Test
     public void realizaDesafioDois() {
-        while(datapool.hasNext()) {
+        while (datapool.hasNext()) {
             goToUrl("https://www.grocerycrud.com/demo/bootstrap_theme");
 
             bootstrap.selectVersion(datapool.valueOfCell("Version"));
