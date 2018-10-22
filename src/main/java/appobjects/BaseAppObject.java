@@ -1,17 +1,21 @@
 package appobjects;
 
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.FluentWait;
 import setup.ChromeBrowser;
+import java.time.Duration;
+import java.util.NoSuchElementException;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseAppObject {
 
-    protected FluentWait<WebDriver> wait = new FluentWait<WebDriver>(ChromeBrowser.getDriver())
-            .withTimeout(30, TimeUnit.SECONDS)
-            .pollingEvery(5, TimeUnit.SECONDS)
-            .ignoring(NoSuchElementException.class);
+     protected FluentWait<WebDriver> wait =
+            new FluentWait<>(ChromeBrowser.getDriver())
+                    .withTimeout(Duration.ofSeconds(30))
+                    .pollingEvery(Duration.ofSeconds(5))
+                    .ignoring(NoSuchElementException.class);
 
 }
