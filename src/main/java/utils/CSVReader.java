@@ -24,7 +24,6 @@ public class CSVReader {
         this.csv = new File(path);
         BufferedReader bufferedReader = null;
         FileReader fileReader = null;
-        this.csv = csv;
         int i = 0;
 
         try {
