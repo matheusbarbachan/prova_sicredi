@@ -1,6 +1,11 @@
 package tasks;
 
 import appobjects.AddCustomerAppObject;
+import org.openqa.selenium.support.ui.FluentWait;
+
+import java.time.Duration;
+
+import static java.lang.Thread.sleep;
 
 public class AddCustomerTask {
 
@@ -39,6 +44,11 @@ public class AddCustomerTask {
         addCustomer.getFromEmployeerSelect().selectByVisibleText(employeer);
         addCustomer.getCreditLimitTextField().sendKeys(creditLimit);
         addCustomer.getSaveButton().click();
+        try {
+            sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean messageDisplayed() {
@@ -47,5 +57,10 @@ public class AddCustomerTask {
 
     public void saveAndGoBackToList() {
         addCustomer.getSaveAndGoBackToLIstButton().click();
+        try {
+            sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

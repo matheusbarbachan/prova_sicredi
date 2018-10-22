@@ -43,7 +43,7 @@ public class CSVReader {
 
         } catch(IOException exception) {
 
-            exception.printStackTrace();
+            System.out.println("Erro ao ler o CSV do datapool. Verifique o arquivo.");
 
         } finally {
             try {
@@ -91,8 +91,8 @@ public class CSVReader {
             setRowIndex(positionOfHeaderValue(headerValue));
             cellValue = readFromCell(getLineIndex(),getRowIndex());
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IndexOutOfBoundsException exception) {
+            System.out.println("Valor não existe no cabeçalho do datapool");
         }
         return cellValue;
     }
@@ -102,7 +102,7 @@ public class CSVReader {
             if (index <= rowMaxValue)
                 this.rowIndex = index;
         } catch(IndexOutOfBoundsException exception){
-            System.out.println("Valor maior do que o máximo de colunas do cabeçalho!")
+            System.out.println("Valor maior do que o máximo de colunas do cabeçalho!");
         }
     }
 
@@ -123,10 +123,11 @@ public class CSVReader {
                         index = i;
                     }
                 }
-                return index;
+
             }catch(IndexOutOfBoundsException exception) {
                 System.out.println("Valor não existe no cabeçalho do datapool");
             }
+        return index;
     }
 
     private String readFromCell(int line, int row){

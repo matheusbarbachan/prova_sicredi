@@ -1,6 +1,7 @@
 ### Intellij ###
 # User-specific stuff
 .idea/*
+**/.idea/**
 .idea/**/workspace.xml
 .idea/**/uiDesigner.xml
 

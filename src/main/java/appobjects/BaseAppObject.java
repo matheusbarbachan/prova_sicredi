@@ -18,4 +18,17 @@ public class BaseAppObject {
                     .pollingEvery(Duration.ofSeconds(5))
                     .ignoring(NoSuchElementException.class);
 
+
+
+     protected WebElement getElementBy(By by) {
+         ChromeBrowser.waitLoadPage();
+          WebElement webElement;
+
+          webElement = wait.until(driver -> {
+               WebElement element = driver.findElement(by);
+               return element;
+          });
+
+          return webElement;
+     }
 }

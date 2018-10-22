@@ -38,6 +38,7 @@ public class BootstrapThemeTask {
     }
 
     public void deleteSelectedItem() {
+
         bootstrapThemeAppObject.getDeleteButton().click();
     }
 
@@ -47,6 +48,11 @@ public class BootstrapThemeTask {
 
     public void confirmDeletion() {
         bootstrapThemeAppObject.getConfirmDeleteButton().click();
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean assertDeletionSuccessMessage() {
