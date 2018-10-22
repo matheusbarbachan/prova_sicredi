@@ -8,7 +8,7 @@ public class ChromeBrowser {
     public static ChromeDriver driver;
     public static final ChromeBrowser browser = new ChromeBrowser();
 
-    public ChromeBrowser() {
+    private ChromeBrowser() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized")
                 .addArguments("--incognito");
